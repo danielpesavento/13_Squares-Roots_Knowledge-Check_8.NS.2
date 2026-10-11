@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8.NS.A.2 Squares and Square Roots - Knowledge Check - Interactive Practice</title>
+<style>
+  :root {
+    --navy: #1a3a5c;
+    --navy-dark: #10253d;
+    --gold: #c9a227;
+    --gold-light: #e8d38a;
+    --cream: #faf8f3;
+    --green: #2e7d47;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Calibri, "Segoe UI", Arial, sans-serif;
+    background: var(--cream);
+    color: var(--navy-dark);
+    margin: 0;
+    padding: 0 0 60px 0;
+  }
+  header {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 24px 20px;
+    text-align: center;
+    border-bottom: 6px solid var(--gold);
+  }
+  header h1 { margin: 0 0 6px 0; font-size: 1.5em; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  .student-field {
+    background: #fff;
+    border: 2px solid var(--navy);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    max-width: 500px;
+  }
+  .student-field label { font-weight: bold; display: block; margin-bottom: 8px; color: var(--navy); }
+  .student-field input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    font-family: inherit;
+    border: 1px solid #999;
+    border-radius: 5px;
+  }
+  .instructions-banner {
+    background: #fff8e6;
+    border-left: 4px solid var(--gold);
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 0.95em;
+  }
+  .section-block { margin-top: 34px; }
+  .section-heading {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 10px 16px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 4px solid var(--gold);
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .section-note {
+    background: #fff8e6;
+    border-left: 4px solid var(--gold);
+    padding: 10px 16px;
+    margin: 14px 0 6px 0;
+    font-style: italic;
+    font-size: 0.95em;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  .col-head {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  .col-hint {
+    text-align: center;
+    font-style: italic;
+    color: #444;
+    font-size: 0.95em;
+    margin: 8px 0 4px 0;
+  }
+  .term-row {
+    background: #fff;
+    margin: 10px 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .term-label {
+    flex: 1 1 200px;
+    color: var(--navy-dark);
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+  .term-prompt {
+    font-size: 0.62em;
+    font-weight: normal;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 2px;
+  }
+  .term-number { color: var(--gold); font-weight: bold; margin-right: 8px; font-size: 0.85em; }
+  sup { font-size: 0.65em; line-height: 0; }
+  .answer-input {
+    width: 100px;
+    padding: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-family: inherit;
+  }
+  .answer-input:focus { outline: 3px solid var(--gold-light); border-color: var(--gold); }
+  .submit-section { text-align: center; margin-top: 40px; padding: 20px; border-top: 2px solid var(--gold); }
+  button.submit-btn {
+    background: var(--gold);
+    color: var(--navy-dark);
+    font-weight: bold;
+    font-size: 1.05em;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  button.submit-btn:hover { background: var(--gold-light); }
+  button.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .status-msg { margin-top: 14px; font-weight: bold; color: var(--navy); font-size: 1.05em; }
+  .score-box {
+    display: none;
+    margin: 18px auto 0 auto;
+    max-width: 420px;
+    background: #fff8e6;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    padding: 14px 20px;
+    color: var(--navy);
+  }
+  .score-label { font-size: 0.95em; }
+  .score-percent { font-size: 2.4em; font-weight: bold; line-height: 1.1; color: var(--navy); }
+  .score-detail { font-size: 1em; margin-top: 2px; }
+  .score-note { font-size: 0.85em; color: #555; margin-top: 8px; }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; gap: 0; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>8.NS.A.2 Squares and Square Roots - Knowledge Check - Interactive Practice</h1>
+</header>
+
+<div class="container">
+
+  <div class="student-field">
+    <label for="studentName">Student Name:</label>
+    <input type="text" id="studentName" placeholder="Type your full name">
+  </div>
+
+  <div class="instructions-banner">
+    Type your answer in the box for each numbered problem. Every answer is a whole number. You can answer in any order, and you can come back and submit again after you answer more problems.
+  </div>
+
+  <div id="sectionsHost"></div>
+
+  <div class="submit-section">
+    <button class="submit-btn" id="submitBtn" onclick="submitQuiz()">Submit Activity</button>
+    <div class="status-msg" id="statusMsg"></div>
+    <div class="score-box" id="scoreBox"></div>
+  </div>
+
+</div>
+
+<script>
+/* =========================================================
+   CONFIG: paste your deployed Google Apps Script Web App URL here
+   (deploy the companion Apps Script file for THIS quiz, not an earlier quiz)
+   ========================================================= */
+const GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbztrVpMYHu1ktGNYeiDwl4o3uaZAU4zMwkHO-Gxx1HNuvNSekJzxYcO8JiY9SQyA5aU/exec";
+
+const TOTAL_TERMS = 20;
+
+/* =========================================================
+   SECTIONS - one section with two columns (10 problems each).
+   Problems are numbered 1-20 (left column first, then right column). The answer key is NOT stored in this
+   file. Grading happens in the Google Apps Script.
+   ========================================================= */
+const sections = [
+  {
+    key: "s1",
+    title: "Square It and Square Root It",
+    note: "Type the value for each problem. Left column: multiply the number by itself. Right column: find the number that multiplies by itself to make the number under the root.",
+    columns: [
+      {
+        head: "Square it",
+        hint: "6<sup>2</sup> means 6 &times; 6",
+        problems: [
+          { html: "9<sup>2</sup> = ?" },
+          { html: "13<sup>2</sup> = ?" },
+          { html: "4<sup>2</sup> = ?" },
+          { html: "15<sup>2</sup> = ?" },
+          { html: "11<sup>2</sup> = ?" },
+          { html: "8<sup>2</sup> = ?" },
+          { html: "3<sup>2</sup> = ?" },
+          { html: "12<sup>2</sup> = ?" },
+          { html: "2<sup>2</sup> = ?" },
+          { html: "10<sup>2</sup> = ?" }
+        ]
+      },
+      {
+        head: "Square root it",
+        hint: "&radic;25 asks: what number times itself is 25?",
+        problems: [
+          { html: "&radic;49 = ?" },
+          { html: "&radic;196 = ?" },
+          { html: "&radic;36 = ?" },
+          { html: "&radic;121 = ?" },
+          { html: "&radic;64 = ?" },
+          { html: "&radic;169 = ?" },
+          { html: "&radic;4 = ?" },
+          { html: "&radic;81 = ?" },
+          { html: "&radic;225 = ?" },
+          { html: "&radic;144 = ?" }
+        ]
+      }
+    ]
+  }
+];
+
+// Flatten into one numbered list of problems (1-20), in display order.
+const terms = [];
+sections.forEach(sec => {
+  sec.columns.forEach(col => {
+    col.problems.forEach(p => {
+      terms.push({ id: terms.length + 1, html: p.html, prompt: p.prompt || "" });
+      p.id = terms.length;
+    });
+  });
+});
+
+const alreadySubmitted = {};
+terms.forEach(t => { alreadySubmitted[t.id] = false; });
+
+function buildActivity() {
+  const host = document.getElementById("sectionsHost");
+  sections.forEach(sec => {
+    const block = document.createElement("div");
+    block.className = "section-block";
+
+    const heading = document.createElement("div");
+    heading.className = "section-heading";
+    heading.textContent = sec.title;
+    block.appendChild(heading);
+
+    const note = document.createElement("div");
+    note.className = "section-note";
+    note.textContent = sec.note;
+    block.appendChild(note);
+
+    const grid = document.createElement("div");
+    grid.className = "two-col";
+
+    sec.columns.forEach(col => {
+      const colDiv = document.createElement("div");
+      colDiv.innerHTML = `<div class="col-head">${col.head}</div><div class="col-hint">${col.hint}</div>`;
+      col.problems.forEach(p => {
+        const row = document.createElement("div");
+        row.className = "term-row";
+        row.id = "row-" + p.id;
+        row.innerHTML = `
+          <div class="term-label">${p.prompt ? `<div class="term-prompt">${p.prompt}</div>` : ""}<span class="term-number">${p.id}.</span>${p.html}</div>
+          <input type="text" class="answer-input" id="input-${p.id}" maxlength="4" inputmode="numeric" placeholder="?" autocomplete="off" aria-label="Answer for problem ${p.id}" oninput="onAnswerEdited(${p.id})">
+        `;
+        colDiv.appendChild(row);
+      });
+      grid.appendChild(colDiv);
+    });
+
+    block.appendChild(grid);
+    host.appendChild(block);
+  });
+}
+
+function getSelected(id) {
+  const input = document.getElementById("input-" + id);
+  return input ? input.value.trim() : "";
+}
+
+// Editing a box after it was already sent makes it eligible to be
+// resent on the next Submit Activity click. Only digits are kept.
+function onAnswerEdited(id) {
+  const input = document.getElementById("input-" + id);
+  const cleaned = input.value.replace(/[^0-9]/g, "");
+  if (cleaned !== input.value) input.value = cleaned;
+  alreadySubmitted[id] = false;
+}
+
+function showScore(result) {
+  const box = document.getElementById("scoreBox");
+  const total = Number(result.total) || TOTAL_TERMS;
+  const correct = Number(result.score) || 0;
+  const answeredCount = Number(result.answered) || 0;
+  // Percent is always correct answers divided by total problems (unanswered count as wrong).
+  const pct = Math.round((correct / total) * 100);
+  let note = "";
+  if (answeredCount < total) {
+    note = `<div class="score-note">Unanswered problems count as incorrect until you answer them.</div>`;
+  }
+  box.innerHTML = `
+    <div class="score-label">Your score</div>
+    <div class="score-percent">${pct}%</div>
+    <div class="score-detail">${correct} of ${total} correct</div>
+    ${note}`;
+  box.style.display = "block";
+}
+
+function submitQuiz() {
+  const name = document.getElementById("studentName").value.trim();
+  const statusMsg = document.getElementById("statusMsg");
+  const scoreBox = document.getElementById("scoreBox");
+
+  if (!name) {
+    alert("Please enter your name before submitting.");
+    return;
+  }
+
+  const answers = terms.map(t => {
+    if (alreadySubmitted[t.id]) return "";
+    const val = getSelected(t.id);
+    return val ? val : "";
+  });
+
+  const newlyIncludedIds = terms
+    .filter(t => !alreadySubmitted[t.id] && getSelected(t.id))
+    .map(t => t.id);
+
+  if (newlyIncludedIds.length === 0) {
+    alert("You haven't answered any new problems since your last submission. Answer at least one before submitting again.");
+    return;
+  }
+
+  if (GAS_WEB_APP_URL.indexOf("PASTE_YOUR") === 0) {
+    statusMsg.textContent = "This quiz is not connected to its Apps Script yet. Paste the Web App URL into GAS_WEB_APP_URL.";
+    return;
+  }
+
+  const payload = {
+    timestamp: new Date().toISOString(),
+    student: name,
+    answers: answers
+  };
+
+  const submitBtn = document.getElementById("submitBtn");
+  submitBtn.disabled = true;
+  statusMsg.textContent = "Submitting...";
+  scoreBox.style.display = "none";
+
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payload)
+  };
+
+  function markSent() {
+    newlyIncludedIds.forEach(id => { alreadySubmitted[id] = true; });
+    submitBtn.disabled = false;
+  }
+
+  // First try a normal request so the page can read the score the script sends back.
+  fetch(GAS_WEB_APP_URL, requestOptions)
+    .then(r => r.json())
+    .then(result => {
+      if (!result || result.ok !== true) {
+        throw new Error((result && result.error) || "Script error");
+      }
+      markSent();
+      statusMsg.textContent = "Submitted! Thank you, " + name + ".";
+      showScore(result);
+    })
+    .catch(() => {
+      // Fallback: resend without reading the reply. The script merges repeat
+      // answers safely, so a resend never creates a duplicate row.
+      fetch(GAS_WEB_APP_URL, Object.assign({ mode: "no-cors" }, requestOptions))
+        .then(() => {
+          markSent();
+          statusMsg.textContent = "Submitted! Thank you, " + name + ".";
+        })
+        .catch(() => {
+          statusMsg.textContent = "Submission may have failed - check your connection and try again.";
+          submitBtn.disabled = false;
+        });
+    });
+}
+
+buildActivity();
+</script>
+
+</body>
+</html>
